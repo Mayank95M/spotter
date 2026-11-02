@@ -2,7 +2,11 @@
 
 A phone-first workout planner. Build a plan for any split, watch a 3D demo of every exercise, check your form, see time and calorie estimates, and track your weight, measurements and lifts.
 
+In the gym it gives you a plate calculator with warm-up sets, a note for each exercise, and room to change the workout as you go. A rehab and recovery section, found in the Library and on each exercise's Precautions tab, explains how to train around a sore shoulder, elbow, wrist, back, hip, knee, ankle or neck. It links to the matching structures in [AnatomeX](https://mayank95m.github.io/Anatomex/).
+
 There's no account and no server: the whole app runs in your phone's browser.
+
+Copyright © 2026 Mayank Mayookh. All rights reserved.
 
 ## Put it on GitHub Pages
 
@@ -59,3 +63,7 @@ The full explanation, with references, is in the app under **Settings → How th
 - **Body:** body fat uses the U.S. Navy tape method (waist, neck, plus hips for women). The app also shows FFMI, BMI, and maintenance calories (Mifflin–St Jeor × activity).
 
 Spotter gives general training information, not medical advice. If you have an injury or a medical condition, check with a doctor or physiotherapist before starting a new programme.
+
+## Copyright
+
+Spotter is copyright © 2026 Mayank Mayookh. All rights reserved. The Barlow Condensed typeface is by Jeremy Tribby, used under the SIL Open Font License.

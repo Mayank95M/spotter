@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- Spotter. Copyright (c) 2026 Mayank Mayookh. All rights reserved. -->
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1b1e23">
 <meta name="description" content="Spotter: workout plans for any split, 3D exercise demos with form checks, calorie estimates and progress tracking. Works offline on your phone.">
+<meta name="author" content="Mayank Mayookh">
+<meta name="copyright" content="© 2026 Mayank Mayookh. All rights reserved.">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -73,7 +76,10 @@ svg.i.sm { width: 18px; height: 18px; } svg.i.xs { width: 15px; height: 15px; }
 .iconbtn { width: 42px; height: 42px; display: inline-grid; place-items: center; border-radius: 50%; color: var(--tx); background: var(--surf); border: 1px solid var(--line); transition: transform .12s; }
 .iconbtn:active { transform: scale(.94); }
 .iconbtn.ghost { background: transparent; border-color: transparent; }
-main#view { padding: 4px 16px calc(var(--tab-h) + 96px + var(--safe-b)); min-height: 70vh; }
+main#view { padding: 4px 16px 0; min-height: 70vh; }
+/* copyright credit: sits after every tab's content, above the tab bar */
+.credit { text-align: center; font-size: 12.5px; font-weight: 600; color: var(--tx2); padding: 30px 16px calc(var(--tab-h) + 96px + var(--safe-b)); }
+.credit span { display: inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); }
 .view-enter { animation: viewIn .22s ease both; }
 @keyframes viewIn { from { opacity: 0; transform: translateY(6px); } }
 
@@ -402,12 +408,94 @@ body.in-session .rest { bottom: calc(82px + var(--safe-b)); }
 :root[data-theme="light"] .toast button { color: #8a5d00; }
 .foot { text-align: center; font-size: 12px; color: var(--tx3); margin: 36px 0 0; }
 
+.ob-credit { text-align: center; font-size: 12.5px; font-weight: 600; color: var(--tx2); margin: 6px 0 0; }
+.about-credit { color: var(--tx2); font-size: 13px; line-height: 1.5; }
+.about-credit b { color: var(--tx); font-weight: 700; }
+
+/* ---------- quiet entry rows (rehab) ---------- */
+.quietlink { display: flex; align-items: center; gap: 12px; width: 100%; margin: 10px 0 4px; padding: 10px 12px; border-radius: 14px; border: 1px solid var(--line); background: transparent; color: var(--tx2); text-align: left; }
+.quietlink > svg:first-child { color: var(--tx3); }
+.quietlink .t { display: block; color: var(--tx); font-weight: 650; font-size: 14.5px; line-height: 1.25; }
+.quietlink .s { display: block; font-size: 12.5px; margin-top: 1px; }
+.quietlink:active { background: var(--surf); }
+
+/* ---------- rehab page ---------- */
+.rehab .lead-s { margin: 2px 0 14px; color: var(--tx2); font-size: 14.5px; line-height: 1.5; }
+.redflags { border: 1px solid color-mix(in srgb, var(--warn) 45%, var(--line)); background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 14px; padding: 4px 14px; }
+.redflags summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 650; cursor: pointer; }
+.redflags summary::-webkit-details-marker { display: none; }
+.redflags summary svg { color: var(--warn); }
+.redflags ul { margin: 0 0 10px; padding-left: 18px; display: grid; gap: 5px; font-size: 13px; color: var(--tx2); line-height: 1.4; }
+.rh-chips { margin-top: 16px; }
+.rh-area { scroll-margin-top: 70px; }
+.rh-title { font: 700 30px/1.05 var(--disp); margin: 16px 0 4px; }
+.rh-signs { margin: 0; font-size: 14px; line-height: 1.5; }
+.rh-sub { margin: -4px 0 10px; font-size: 13.5px; }
+.rh-ok { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--tx2); }
+.rh-ok svg { color: var(--good); margin-top: 1px; }
+.rh-bullets { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 14.5px; line-height: 1.5; }
+.rh-bullets li::marker { color: var(--tx3); }
+.rh-tags, .rh-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.rh-tags .pill { height: 32px; font-size: 13px; }
+.rh-links .chip { text-decoration: none; color: var(--tx); }
+.rh-links .chip svg { color: var(--tx3); }
+.rh-rule p { margin: 0 0 10px; font-size: 14.5px; line-height: 1.5; }
+.rh-rule p:last-child { margin: 10px 0 0; }
+.rh-stages li span { font-size: 14.5px; line-height: 1.5; padding-top: 3px; }
+.rh-anx { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 14px; border-radius: var(--r-lg); background: var(--surf); border: 1px solid var(--line); }
+.rh-anx .t { font: 700 20px/1.1 var(--disp); }
+.rh-anx .s { font-size: 13px; color: var(--tx2); margin-top: 3px; line-height: 1.4; }
+.rh-anx .btn { text-decoration: none; flex: none; }
+.rh-refs { margin: 18px 0 8px; font-size: 11.5px; line-height: 1.5; color: var(--tx3); }
+
+/* ---------- plate calculator ---------- */
+.pc-w { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 2px 0 6px; }
+.pc-in { display: flex; align-items: baseline; gap: 6px; padding: 0 14px; height: 56px; border-radius: 14px; background: var(--surf2); border: 1px solid var(--line2); }
+.pc-in input { width: 110px; border: 0; background: transparent; outline: none; text-align: right; font: 700 34px/1 var(--disp); color: var(--tx); padding: 0; }
+.pc-in span { font-weight: 650; color: var(--tx2); }
+.barviz { position: relative; display: flex; align-items: center; gap: 2px; height: 160px; padding: 0 0 34px 14px; margin: 8px 0 0; }
+.barviz .collar { flex: none; width: 10px; height: 40px; border-radius: 3px; background: var(--surf3); border: 1px solid var(--line2); margin-right: 3px; }
+.barviz .sleeve { flex: 1; height: 16px; border-radius: 0 6px 6px 0; background: linear-gradient(var(--surf3), var(--line2)); min-width: 30px; }
+.barviz .plate { position: relative; flex: none; width: var(--w); height: calc(var(--h) * 120px); border-radius: 4px; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.barviz .plate b { position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); font-size: 10.5px; font-weight: 700; color: var(--tx2); white-space: nowrap; }
+.barviz .plate:nth-of-type(odd) b { top: calc(100% + 19px); }
+.pc-res { margin: 4px 0 0; font-size: 15px; color: var(--tx2); line-height: 1.45; }
+.pc-res b { color: var(--tx); }
+.pc-wu .end { font-weight: 700; }
+
+/* ---------- notes ---------- */
+.exnote { display: flex; align-items: flex-start; gap: 8px; width: 100%; margin: 10px 0 0; padding: 9px 12px; border-radius: 12px; background: var(--surf2); border-left: 3px solid var(--acc); color: var(--tx); text-align: left; font-size: 14px; line-height: 1.4; }
+.exnote svg { margin-top: 2px; color: var(--tx2); }
+.exnote-card { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.45; }
+.exnote-card svg { color: var(--tx2); margin-top: 1px; }
+.addnote { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; }
+
+/* ---------- workout tools ---------- */
+.sess-tools { margin-top: 12px; gap: 8px; flex-wrap: wrap; }
+.exnav button.add { color: var(--tx); border-style: dashed; }
+
+/* ---------- backup reminder ---------- */
+.card.backup { margin-top: 16px; border-color: color-mix(in srgb, var(--data) 40%, var(--line)); }
+.card.backup svg { color: var(--data); margin-top: 2px; }
+.card.backup .t { font-weight: 700; }
+.card.backup .s { font-size: 13.5px; color: var(--tx2); margin-top: 3px; line-height: 1.45; }
+
+/* ---------- editing a past workout ---------- */
+.sedit + .sedit { margin-top: 14px; }
+.sedit > .t { font-weight: 650; margin-bottom: 6px; }
+.sedit-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.sedit-row .n { width: 22px; text-align: center; font-weight: 700; color: var(--tx3); font-size: 13px; }
+.sedit-row .input { width: 76px; height: 42px; padding: 0 10px; text-align: center; font-weight: 650; }
+.sedit-row .u { font-size: 13px; color: var(--tx2); }
+.sedit-row .iconbtn { margin-left: auto; }
+
 </style>
 </head>
 <body>
 <div id="app">
   <header class="topbar" id="topbar"></header>
   <main id="view" tabindex="-1"></main>
+  <footer class="credit" id="credit"><span>© 2026 Mayank Mayookh</span></footer>
 </div>
 <nav class="tabbar" id="tabbar" aria-label="Main"></nav>
 <noscript><p style="padding:24px;font:16px system-ui">Spotter needs JavaScript to run.</p></noscript>
@@ -2861,9 +2949,10 @@ const Core = (() => {
   const DEFAULTS = () => ({
     v: 1,
     profile: { name: '', sex: 'm', age: 30, height: 175, weight: 72, units: 'kg', len: 'cm', goal: 'muscle', level: 2, sessionMin: 60, equip: EQ_PRESETS.gym.eq.slice(), eqPreset: 'gym',
-      restAuto: true, sound: true, vibrate: true, wake: true, theme: 'system', kcalMode: 'total', onboarded: false },
-    plan: null, sessions: [], active: null, body: [],
-    ui: { planDay: 0, part: 'all', prog: 'body', strengthEx: null, hintRotate: false, myEquip: false }
+      restAuto: true, sound: true, vibrate: true, wake: true, theme: 'system', kcalMode: 'total', onboarded: false,
+      barKg: 20, barLb: 45, platesKg: [25, 20, 15, 10, 5, 2.5, 1.25], platesLb: [45, 35, 25, 10, 5, 2.5] },
+    plan: null, sessions: [], active: null, body: [], notes: {}, lastBackup: 0,
+    ui: { planDay: 0, part: 'all', prog: 'body', strengthEx: null, hintRotate: false, myEquip: false, backupSnooze: 0 }
   });
   let mem = null, saveT = 0, storageOK = true;
   function load() {
@@ -2875,6 +2964,8 @@ const Core = (() => {
     s.ui = Object.assign(d.ui, s.ui || {});
     s.sessions = Array.isArray(s.sessions) ? s.sessions : [];
     s.body = Array.isArray(s.body) ? s.body : [];
+    s.notes = s.notes && typeof s.notes === 'object' && !Array.isArray(s.notes) ? s.notes : {};
+    s.lastBackup = +s.lastBackup || 0;
     // drop references to unknown exercises
     if (s.plan) for (const day of s.plan.days) day.items = day.items.filter(it => byId[it.ex]);
     mem = s; return s;
@@ -2938,7 +3029,11 @@ const U = (() => {
     timer: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 3h6"/>', copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
     download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>', upload: '<path d="M12 16V5M7 10l5-5 5 5M5 20h14"/>', tick: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     dumbbell: '<path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12"/>', target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',
-    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'
+    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+    care: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M12 8v8M8 12h8"/>',
+    ext: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+    plate: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.6"/>',
+    note: '<path d="M5 4h10l4 4v12H5z"/><path d="M14.5 4v4.5H19M8.5 12.5h7M8.5 16h5"/>'
   };
   const icon = (n, cls) => `<svg class="i ${cls || ''}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n] || ''}</svg>`;
 
@@ -3315,6 +3410,11 @@ const App = (() => {
       h += `<div class="wd ${cls}"><div class="n">${U.DAYN[d.getDay()].slice(0, 2)}</div><div class="d">${d.getDate()}</div><div class="m"><i></i></div></div>`;
     }
     h += `</div><div class="legend" style="margin-top:8px"><span><span class="sw" style="background:var(--acc);border-radius:50%"></span>Trained</span><span><span class="sw" style="border:1.5px solid var(--tx3);border-radius:50%"></span>Planned</span></div></div>`;
+    // backup reminder: only once there's something worth losing
+    const lb = S().lastBackup || 0, unsaved = S().sessions.filter(x => (x.end || x.start) > lb).length;
+    if (unsaved >= 3 && Date.now() - lb > 14 * 864e5 && !(S().ui.backupSnooze > Date.now())) {
+      h += `<div class="card backup"><div class="row" style="align-items:flex-start;gap:12px">${icon('download', 'sm')}<div class="grow"><div class="t">Back up your log</div><div class="s">${unsaved} workouts are saved only in this browser${lb ? `. Last backup ${U.fmtDate(lb)}` : ''}. A backup lets you restore them on any phone.</div></div></div><div class="row" style="gap:8px;margin-top:12px;justify-content:flex-end"><button class="btn sm ghost" data-act="snooze">Later</button><button class="btn sm primary" data-act="backup">Back up now</button></div></div>`;
+    }
     // body weight
     const bw = S().body.filter(b => b.w).map(b => ({ x: U.parseYmd(b.d).getTime(), y: U.toW(b.w) }));
     const lw = latestWeight();
@@ -3342,7 +3442,8 @@ const App = (() => {
     bindCommon(v);
     U.delegate(v, {
       start: t => Sess.start(+t.dataset.day), resume: () => Sess.open(), setup: () => SplitSetup.open(), pickday: () => pickDay(i => Sess.start(i), 'Start which workout?'),
-      logw: () => Prog.logWeight(), prog: () => go('progress'), history: () => { S().ui.prog = 'history'; go('progress'); }, sess: t => Prog.sessionDetail(t.dataset.id)
+      logw: () => Prog.logWeight(), prog: () => go('progress'),
+      backup: () => Settings.exportSheet(), snooze: () => { S().ui.backupSnooze = Date.now() + 7 * 864e5; commit(); }, history: () => { S().ui.prog = 'history'; go('progress'); }, sess: t => Prog.sessionDetail(t.dataset.id)
     });
   }
   function bindCommon(root) { if (root._common) return; root._common = true; root.addEventListener('click', e => { if (e.target.closest('[data-act="settings"]')) Settings.open(); }); }
@@ -3497,7 +3598,7 @@ const App = (() => {
     U.delegate(body, {
       rest: t => { it.rest = +t.dataset.r; C.save(); draw(); },
       view: () => Detail.open(it.ex),
-      swap: () => { picker({ title: 'Swap ' + ex.n, like: ex, onPick: nid => { const ne = C.byId[nid]; const np = C.prescribe(ne, it.role === 'main' ? 'main' : '', p); it.ex = nid; if (!!np.secs !== !!it.secs) { it.secs = np.secs; it.reps = np.reps; } if (it.secs) delete it.reps; else delete it.secs; C.save(); U.toast('Swapped in ' + ne.n); o.close(); } }); },
+      swap: () => { picker({ title: 'Swap ' + ex.n, like: ex, onPick: nid => { swapItem(it, nid); C.save(); U.toast('Swapped in ' + C.byId[nid].n); o.close(); } }); },
       upi: () => { if (ii > 0) { [day.items[ii - 1], day.items[ii]] = [day.items[ii], day.items[ii - 1]]; C.save(); o.close(); } },
       dni: () => { if (ii < day.items.length - 1) { [day.items[ii + 1], day.items[ii]] = [day.items[ii], day.items[ii + 1]]; C.save(); o.close(); } },
       remove: () => { const removed = day.items.splice(ii, 1)[0]; C.save(); o.close(); setTimeout(() => U.toast(`Removed ${ex.n}`, 'Undo', () => { day.items.splice(ii, 0, removed); commit(); }), 120); }
@@ -3508,8 +3609,17 @@ const App = (() => {
     picker({ title: 'Add to ' + day.name, parts: day.focus, onPick: id => { const ex = C.byId[id]; day.items.push(C.prescribe(ex, '', P())); C.save(); render(); U.toast(`Added ${ex.n}`); } });
   }
 
+  // replace a plan item's exercise, keeping its sets, reps and rest (switching between reps and a hold if needed)
+  function swapItem(it, nid) {
+    const ne = C.byId[nid]; if (!ne) return;
+    const np = C.prescribe(ne, it.role === 'main' ? 'main' : '', P());
+    it.ex = nid;
+    if (!!np.secs !== !!it.secs) { it.secs = np.secs; it.reps = np.reps; }
+    if (it.secs) delete it.reps; else delete it.secs;
+  }
+
   /* ---- exercise picker (add / swap) ---- */
-  function picker({ title, onPick, like, parts }) {
+  function picker({ title, onPick, like, parts, label }) {
     const p = P();
     let q = '', part = like ? like.part : (parts && parts[0] && C.PARTS.some(x => x.id === parts[0]) ? parts[0] : 'all');
     let mine = true;
@@ -3531,7 +3641,7 @@ const App = (() => {
     U.delegate(body, {
       part: t => { part = t.dataset.p; draw(); }, mine: () => { mine = !mine; draw(); },
       pick: t => { o.close(); onPick(t.dataset.id); },
-      info: t => Detail.open(t.dataset.id, { label: like ? 'Swap in this exercise' : 'Add to plan', fn: () => { U.closeTop(); setTimeout(() => { o.close(); onPick(t.dataset.id); }, 60); } })
+      info: t => Detail.open(t.dataset.id, { label: label || (like ? 'Swap in this exercise' : 'Add to plan'), fn: () => { U.closeTop(); setTimeout(() => { o.close(); onPick(t.dataset.id); }, 60); } })
     });
   }
   function sim(a, b) { // similarity for swaps
@@ -3554,6 +3664,11 @@ const App = (() => {
     let h = `<div class="search">${icon('search')}<input type="search" id="libq" placeholder="Search exercises or muscles" value="${esc(libQ)}" aria-label="Search exercises"/>${libQ ? `<button class="clear" data-act="clearq" aria-label="Clear search">${icon('x', 'sm')}</button>` : ''}</div>`;
     h += `<div class="chips"><button class="chip" data-act="map" aria-pressed="${libMap}">${icon('body', 'sm')}Body map</button>${[{ id: 'all', n: 'All' }, ...C.PARTS].map(x => `<button class="chip" data-act="part" data-p="${x.id}" aria-pressed="${!libMuscle && part === x.id}">${esc(x.n)}${x.id !== 'all' ? `<span class="ct">${counts[x.id] || 0}</span>` : ''}</button>`).join('')}</div>`;
     if (libMap) h += `<div class="mapcard" style="margin-top:6px"><canvas data-map="front"></canvas><canvas data-map="back"></canvas><span class="cap">Tap a muscle</span>${libMuscle ? `<span class="sel">${esc(C.MUSCLES[libMuscle])}</span>` : ''}</div>`;
+    const rehabQ = /rehab|recover|injur|pain|sore|niggle|physio|tendon|sprain|strain|mobility/i.test(libQ);
+    if (!libQ || rehabQ) {
+      const ra = Rehab.areaForPart(libMuscle ? C.partOfMuscle(libMuscle) : part);
+      h += `<button class="quietlink" data-act="rehab" data-a="${ra || ''}">${icon('care', 'sm')}<span class="grow"><span class="t">Rehab and recovery</span><span class="s">Training around a sore ${ra ? esc(Rehab.AREAS.find(a => a.id === ra).lc) : 'shoulder, knee or back'}</span></span>${icon('right', 'sm')}</button>`;
+    }
     h += `<div class="libtools"><span>${libMuscle ? `<button class="pill" data-act="clearm">${esc(C.MUSCLES[libMuscle])} ${icon('x', 'xs')}</button>` : `${list.length} exercises`}</span><button class="row" data-act="mine" style="gap:8px;color:var(--tx2);font-size:13.5px">My equipment <span class="toggle" role="switch" aria-checked="${!!ui.myEquip}"></span></button></div>`;
     const row = e => `<button class="li" data-act="open" data-id="${e.id}">${U.thumb(e.id)}<div class="grow"><div class="t">${esc(e.n)}</div><div class="s">${esc(U.muscleNames(e.prim))}</div><div class="s" style="display:flex;gap:8px;align-items:center">${U.lvlBars(e.lvl)}<span>${esc(U.eqLabel(e))}</span></div></div>${icon('right', 'sm')}</button>`;
     if (!libQ && !libMuscle && part === 'all') {
@@ -3567,7 +3682,8 @@ const App = (() => {
     inp.addEventListener('input', () => { libQ = inp.value; const pos = inp.selectionStart; render(); const ni = view().querySelector('#libq'); if (ni) { ni.focus(); ni.setSelectionRange(pos, pos); } });
     U.delegate(v, {
       part: t => { ui.part = t.dataset.p; libMuscle = null; commit(); }, open: t => Detail.open(t.dataset.id), clearq: () => { libQ = ''; render(); },
-      mine: () => { ui.myEquip = !ui.myEquip; commit(); }, map: () => { libMap = !libMap; render(); }, clearm: () => { libMuscle = null; render(); }
+      mine: () => { ui.myEquip = !ui.myEquip; commit(); }, map: () => { libMap = !libMap; render(); }, clearm: () => { libMuscle = null; render(); },
+      rehab: t => Rehab.open(t.dataset.a || undefined)
     });
   }
   function drawLibMap() {
@@ -3608,6 +3724,7 @@ const App = (() => {
         <button class="info" data-act="method" style="margin-top:10px">${icon('info', 'xs')}How these numbers are estimated</button>
         <div class="tabs" role="tablist"><button role="tab" data-act="tab" data-t="how" aria-selected="true">How to</button><button role="tab" data-act="tab" data-t="ok" aria-selected="false">Form check</button><button role="tab" data-act="tab" data-t="no" aria-selected="false">Mistakes</button><button role="tab" data-act="tab" data-t="safe" aria-selected="false">Precautions</button></div>
         <div id="tabbody"></div>
+        <div id="notebox"></div>
         ${hist ? `<div class="section"><h2>Your history</h2><div class="card"><div class="stats" style="--n:2;border:0"><div class="stat" style="padding-left:0"><div class="v">${hist.best ? U.fmtW(hist.best) : '–'}<small>${hist.best ? U.wU() : ''}</small></div><div class="l">Best estimated 1-rep max</div></div><div class="stat"><div class="v">${hist.sessions}</div><div class="l">Workouts logged</div></div></div><div id="exh" style="margin-top:8px"></div><p class="muted" style="font-size:13px;margin:6px 0 0">Last time: ${esc(hist.last)}</p></div></div>` : ''}
         <div class="section"><h2>Similar exercises</h2><div class="list">${similar(ex).map(e => `<button class="li" data-act="other" data-id="${e.id}">${U.thumb(e.id)}<div class="grow"><div class="t">${esc(e.n)}</div><div class="s">${esc(U.eqLabel(e))}</div></div>${icon('right', 'sm')}</button>`).join('')}</div></div>`;
       const drawTab = () => {
@@ -3615,10 +3732,12 @@ const App = (() => {
         if (tabSel === 'how') tb.innerHTML = `<ol class="steps">${ex.how.map(s => `<li><span>${esc(s)}</span></li>`).join('')}</ol>`;
         if (tabSel === 'ok') tb.innerHTML = `<p class="muted" style="font-size:13.5px;margin:0 0 12px">Check yourself in a mirror or film a set from the side, then tap each marker you can confirm.</p><ul class="checks ok tap">${ex.ok.map((s, i) => `<li role="checkbox" tabindex="0" data-act="ck" data-i="${i}" aria-checked="${checks.has(i)}"><span class="mk">${icon('check', 'xs')}</span><span>${esc(s)}</span></li>`).join('')}</ul><div class="callout" id="score" style="margin-top:14px">${scoreText(checks.size, ex.ok.length)}</div>`;
         if (tabSel === 'no') tb.innerHTML = `<ul class="checks no">${ex.no.map(s => `<li><span class="mk">${icon('x', 'xs')}</span><span>${esc(s)}</span></li>`).join('')}</ul>`;
-        if (tabSel === 'safe') tb.innerHTML = `<ul class="checks safe">${ex.safe.map(s => `<li><span class="mk">${icon('warn', 'xs')}</span><span>${esc(s)}</span></li>`).join('')}</ul><div class="callout" style="margin-top:14px">Stop if you feel sharp or joint pain, dizziness or chest discomfort. If you have an injury or medical condition, check with a doctor or physiotherapist before training.</div>`;
+        if (tabSel === 'safe') tb.innerHTML = `<ul class="checks safe">${ex.safe.map(s => `<li><span class="mk">${icon('warn', 'xs')}</span><span>${esc(s)}</span></li>`).join('')}</ul><div class="callout" style="margin-top:14px">Stop if you feel sharp or joint pain, dizziness or chest discomfort. If you have an injury or medical condition, check with a doctor or physiotherapist before training.</div><button class="quietlink" data-act="rehab" style="margin-top:12px">${icon('care', 'sm')}<span class="grow"><span class="t">Training around pain?</span><span class="s">Rehab and recovery for the ${esc(Rehab.AREAS.find(a => a.id === Rehab.areaFor(ex)).lc)}</span></span>${icon('right', 'sm')}</button>`;
         body.querySelectorAll('[data-act="tab"]').forEach(b => b.setAttribute('aria-selected', b.dataset.t === tabSel));
       };
       drawTab();
+      const drawNote = () => { const n = Notes.get(id); body.querySelector('#notebox').innerHTML = n ? `<div class="section"><h2>Your note <button class="link" data-act="note">Edit</button></h2><div class="card exnote-card">${icon('note', 'sm')}<span>${esc(n)}</span></div></div>` : `<button class="linkbtn addnote" data-act="note">${icon('note', 'xs')}Add a note: seat height, grip, a cue</button>`; };
+      drawNote();
       const foot = action ? `<button class="btn primary big block" data-act="action">${esc(action.label)}</button>` : (plan() ? `<button class="btn primary big block" data-act="addplan">${icon('plus', 'sm')}Add to plan</button>` : '');
       const o = U.page({ title: ex.n, body, foot: foot || null, onClose: () => U.destroyPlayers(o.el) });
       const pl = U.mountStage(body, ex);
@@ -3629,6 +3748,7 @@ const App = (() => {
         tab: t => { tabSel = t.dataset.t; drawTab(); },
         ck: t => { const i = +t.dataset.i; checks.has(i) ? checks.delete(i) : checks.add(i); t.setAttribute('aria-checked', checks.has(i)); U.buzz(8); root.querySelector('#score').innerHTML = scoreText(checks.size, ex.ok.length); },
         method: () => Settings.method(), other: t => Detail.open(t.dataset.id, action),
+        rehab: () => Rehab.open(Rehab.areaFor(ex)), note: () => Notes.edit(id, drawNote),
         action: () => action.fn(), addplan: () => pickDay(i => { const day = plan().days[i]; day.items.push(C.prescribe(ex, '', P())); C.save(); render(); U.toast(`Added to ${day.name}`); }, 'Add ' + ex.n + ' to')
       });
       return o;
@@ -3696,7 +3816,395 @@ const App = (() => {
     }
   };
 
-  return { go, render, renderMini, Detail, SplitSetup, pickDay, nextDayIndex, weekStart, latestWeight, picker, get tab() { return tab; }, topbar, settingsBtn, bindCommon, commit, exName };
+  return { go, render, renderMini, Detail, SplitSetup, pickDay, nextDayIndex, weekStart, latestWeight, picker, swapItem, get tab() { return tab; }, topbar, settingsBtn, bindCommon, commit, exName };
+})();
+
+/* ---- ui4.js ---- */
+/* ==========================================================================
+   Spotter: rehab and recovery, plate calculator, exercise notes
+   Copyright (c) 2026 Mayank Mayookh. All rights reserved.
+   ========================================================================== */
+
+/* ---------------------------- REHAB AND RECOVERY ---------------------------- */
+const Rehab = (() => {
+  'use strict';
+  const C = Core, S = U.S, P = U.P;
+  const { esc, icon } = U;
+  const ANX = 'https://mayank95m.github.io/Anatomex/';
+
+  // flare: library exercises that often aggravate the area; easier: ones usually better tolerated
+  const AREAS = [
+    {
+      id: 'shoulder', n: 'Shoulder',
+      signs: 'Pain at the front or side of the shoulder when pressing, reaching overhead or at the bottom of a bench press.',
+      flare: ['dip-chest', 'bench-dip', 'ohp', 'arnold-press', 'pike-pushup', 'bb-bench', 'db-fly', 'front-raise'],
+      easier: ['db-bench', 'machine-press', 'cable-row', 'face-pull', 'lat-pulldown', 'rear-delt-fly'],
+      change: [
+        'Press with dumbbells and your palms facing each other, and stop a few centimetres above your chest.',
+        'Keep raises at or below shoulder height.',
+        'Pull more than you push for a few weeks: rows, pulldowns and face pulls.',
+        'Leave dips and behind-the-neck work until pressing feels normal again.'
+      ],
+      start: [
+        'Side-lying or band external rotations: 3 sets of 15, slow and light.',
+        'Face pulls or prone Y raises with very little weight, stopping short of pain.',
+        'Bring pressing back with light dumbbells once these feel easy.'
+      ],
+      anx: [['rc_tendons', 'Rotator cuff tendons'], ['infraspinatus', 'Infraspinatus'], ['low_trap', 'Lower trapezius'], ['serratus', 'Serratus anterior']]
+    },
+    {
+      id: 'elbow', n: 'Elbow',
+      signs: 'Pain on the outside of the elbow, often from gripping, or on the inside, often from curls and pull-ups.',
+      flare: ['bb-curl', 'reverse-curl', 'preacher-curl', 'skullcrusher', 'pullup', 'chinup', 'wrist-curl', 'farmer-carry', 'deadlift'],
+      easier: ['hammer-curl', 'cable-curl', 'pushdown', 'lat-pulldown', 'cable-row', 'machine-press'],
+      change: [
+        'Use a neutral grip, palms facing each other, for curls and pulldowns.',
+        'Use lifting straps for heavy deadlifts and rows so you grip less.',
+        'Lighten curls and triceps extensions, and slow them down.',
+        'Swap pull-ups for pulldowns while it settles.'
+      ],
+      start: [
+        'Outer elbow: rest your forearm on your thigh and lift the back of the hand with a light dumbbell. 3 sets of 15, lowering over 3 seconds.',
+        'Inner elbow: the same movement with your palm facing up.',
+        'Grip holds: squeeze a towel or handle at a moderate effort, 5 holds of 30 seconds.'
+      ],
+      anx: [['common_ext', 'Common extensor tendon'], ['common_flex', 'Common flexor tendon'], ['forearm_ext', 'Wrist and finger extensors'], ['biceps_t', 'Biceps tendons']]
+    },
+    {
+      id: 'wrist', n: 'Wrist',
+      signs: 'Pain at the back of the wrist in push-ups, planks or the front-squat rack, or on the thumb side when gripping.',
+      flare: ['pushup', 'diamond-pushup', 'pike-pushup', 'burpee', 'mountain-climber', 'front-squat', 'bb-curl', 'bench-dip'],
+      easier: ['db-bench', 'machine-press', 'hammer-curl', 'goblet-squat', 'plank', 'cable-curl'],
+      change: [
+        'Do push-ups on handles, dumbbells or your fists to keep the wrist straight.',
+        'Swap front squats for goblet squats.',
+        'When pressing, stack the bar over your forearm, knuckles towards the ceiling.',
+        'Hold planks on your forearms rather than your hands.'
+      ],
+      start: [
+        'Gentle wrist circles and fist clenches to warm up.',
+        'Light wrist curls and wrist extensions: 2 to 3 sets of 15.',
+        'Build up to holding a push-up position for 20 to 30 seconds.'
+      ],
+      anx: [['forearm_ext', 'Wrist and finger extensors'], ['forearm_flex', 'Wrist and finger flexors'], ['forearm_bones', 'Radius and ulna']]
+    },
+    {
+      id: 'lowback', n: 'Lower back',
+      signs: 'An ache or tightness across the lower back after lifting, bending or sitting for a long time.',
+      flare: ['deadlift', 'good-morning', 'bb-row', 'bb-squat', 'kb-swing', 'russian-twist', 'lying-leg-raise', 'hanging-leg-raise'],
+      easier: ['dead-bug', 'side-plank', 'glute-bridge', 'goblet-squat', 'db-row', 'cable-row'],
+      change: [
+        'Keep moving. Walking and normal daily activity help most back pain settle.',
+        'Lower the weight and the range on deadlifts and squats rather than stopping completely.',
+        'Support your chest or one hand on a bench when you row.',
+        'Avoid twisting under load, such as Russian twists, for now.'
+      ],
+      start: [
+        'A daily walk, building from 10 to 30 minutes.',
+        'Dead bugs, side planks and glute bridges: 2 to 3 sets each, stopping before your form slips.',
+        'Bring hinges back with a light Romanian deadlift to mid-shin.'
+      ],
+      anx: [['multifidus', 'Multifidus'], ['ql', 'Quadratus lumborum'], ['tlf', 'Thoracolumbar fascia'], ['discs', 'Intervertebral discs'], ['glute_max', 'Gluteus maximus']]
+    },
+    {
+      id: 'hip', n: 'Hip',
+      signs: 'A pinch at the front of the hip in deep squats, or an ache on the outside of the hip when lying on that side or climbing stairs.',
+      flare: ['bb-squat', 'front-squat', 'bulgarian-split-squat', 'reverse-lunge', 'hanging-leg-raise', 'lying-leg-raise', 'mountain-climber'],
+      easier: ['glute-bridge', 'hip-thrust', 'leg-press', 'rdl', 'leg-curl', 'cable-kickback'],
+      change: [
+        'Squat to a box at a depth that stays comfortable, with your feet a little wider and toes turned out.',
+        'For outer-hip pain, avoid crossing your legs or standing with your weight sunk into one hip.',
+        'Swap lunges for leg presses with a shorter range.',
+        'Keep your glutes strong with bridges and hip thrusts.'
+      ],
+      start: [
+        'Glute bridge holds: 4 to 5 holds of 30 seconds.',
+        'Then full bridges and hip thrusts: 3 sets of 10 to 15, slowly.',
+        'Bring squats back to a high box, and lower the box over the weeks.'
+      ],
+      anx: [['glute_med', 'Gluteus medius'], ['gluteal_t', 'Gluteal tendons'], ['psoas', 'Psoas major'], ['iliofemoral', 'Iliofemoral ligament']]
+    },
+    {
+      id: 'knee', n: 'Knee',
+      signs: 'Pain around or just below the kneecap in squats and lunges, on stairs or when jumping.',
+      flare: ['bb-squat', 'front-squat', 'bulgarian-split-squat', 'reverse-lunge', 'step-up', 'leg-ext', 'burpee', 'jumping-jack'],
+      easier: ['hip-thrust', 'glute-bridge', 'rdl', 'leg-curl', 'leg-press', 'goblet-squat'],
+      change: [
+        'Squat only as deep as stays comfortable, and use a box to keep the depth the same.',
+        'Swap lunges and step-ups for leg presses with a shorter range.',
+        'Keep training hips and hamstrings: hip thrusts, Romanian deadlifts and leg curls.',
+        'Pause jumping and burpees.'
+      ],
+      start: [
+        'Wall sits or leg-extension holds at a comfortable knee angle: 4 to 5 holds of 30 to 45 seconds.',
+        'Then slow, heavier leg presses or box squats, about 3 seconds down and 3 seconds up.',
+        'Add depth, then single-leg work, then jumping, one step at a time.'
+      ],
+      anx: [['patellar_t', 'Patellar tendon'], ['quad_t', 'Quadriceps tendon'], ['vastus_med', 'Vastus medialis'], ['itb', 'Iliotibial band']]
+    },
+    {
+      id: 'ankle', n: 'Ankle and Achilles', lc: 'ankle and Achilles',
+      signs: 'Pain or morning stiffness in the Achilles tendon, or an ankle that feels weak or rolls after a sprain.',
+      flare: ['burpee', 'jumping-jack', 'mountain-climber'],
+      easier: ['seated-calf-raise', 'calf-raise', 'leg-press', 'leg-curl', 'glute-bridge', 'hip-thrust'],
+      change: [
+        'Pause jumping, skipping and sprinting.',
+        'Do calf raises slowly with a pause at the top. No bouncing.',
+        'Seated calf raises are often easier to start with.',
+        'Avoid stretching hard into the sore tendon.'
+      ],
+      start: [
+        'Calf-raise holds on both legs: 5 holds of 30 to 45 seconds.',
+        'Then slow calf raises on both legs, then on one leg, then with added weight.',
+        'After a sprain: balance on the sore leg for 30 seconds, 3 times a day.'
+      ],
+      anx: [['achilles', 'Achilles tendon'], ['soleus', 'Soleus'], ['gastroc', 'Gastrocnemius'], ['atfl', 'Lateral ankle ligaments']]
+    },
+    {
+      id: 'neck', n: 'Neck and upper back',
+      signs: 'Stiffness or pain in the neck or between the shoulder blades, often after pressing, shrugs or a long day at a desk.',
+      flare: ['db-shrug', 'ohp', 'crunch', 'pike-pushup'],
+      easier: ['face-pull', 'prone-y-raise', 'cable-row', 'rear-delt-fly', 'lat-pulldown'],
+      change: [
+        'Keep your chin slightly tucked and your eyes on the floor a little ahead during rows and hinges.',
+        'Lighten shrugs and stop before your shoulders reach your ears.',
+        'Don’t pull on your head during crunches. Rest your fingertips at your temples.',
+        'Break up long desk sessions every 30 to 45 minutes.'
+      ],
+      start: [
+        'Chin tucks: 10 holds of 5 seconds, a few times a day.',
+        'Face pulls and prone Y raises with light weight: 2 to 3 sets of 15.',
+        'Gentle neck turns and tilts to the edge of comfort.'
+      ],
+      anx: [['dnf', 'Deep neck flexors'], ['upper_trap', 'Upper trapezius'], ['levator', 'Levator scapulae'], ['mid_trap', 'Middle trapezius']]
+    }
+  ];
+  AREAS.forEach(a => { a.lc = a.lc || a.n.toLowerCase(); });
+  const byId = Object.fromEntries(AREAS.map(a => [a.id, a]));
+
+  const RED_FLAGS = [
+    'It started with a fall, a blow or a pop, especially with swelling or bruising.',
+    'You have numbness, pins and needles or weakness spreading down an arm or leg.',
+    'You have numbness around your groin or buttocks, or new trouble controlling your bladder or bowels. Get urgent medical help.',
+    'The pain is constant, wakes you at night, or comes with a fever or weight loss you can’t explain.',
+    'A joint locks, gives way or can’t take your weight.',
+    'You get chest pain, unusual breathlessness or dizziness when you exercise. Stop and get help.',
+    'It isn’t getting better after 2 to 3 weeks of sensible changes.'
+  ];
+  const PART_AREA = { chest: 'shoulder', shoulders: 'shoulder', back: 'lowback', biceps: 'elbow', triceps: 'elbow', forearms: 'wrist', quads: 'knee', hamstrings: 'lowback', glutes: 'hip', calves: 'ankle', abs: 'lowback', cardio: 'knee' };
+
+  // the area an exercise most likely relates to: one it often aggravates, otherwise its body part
+  function areaFor(ex) {
+    if (!ex) return 'shoulder';
+    const own = PART_AREA[ex.part];
+    if (own && byId[own].flare.includes(ex.id)) return own;
+    const hit = AREAS.find(a => a.flare.includes(ex.id));
+    return hit ? hit.id : (own || 'shoulder');
+  }
+  const areaForPart = part => PART_AREA[part] || null;
+
+  function flagged(area) {
+    const pl = S().plan; if (!pl) return [];
+    const out = [];
+    pl.days.forEach((d, di) => d.items.forEach(it => { if (area.flare.includes(it.ex)) out.push({ di, day: d, it }); }));
+    return out;
+  }
+  function sim(a, b) {
+    let s = 0; if (a.pat === b.pat) s += 3; if (a.part === b.part) s += 2;
+    for (const m of b.prim) if (a.prim.includes(m)) s += 1.5;
+    return s;
+  }
+
+  let last = 'shoulder';
+  // each open page keeps its own state, so a second rehab page opened from inside the first never breaks it
+  function open(areaId) {
+    const ctx = { cur: byId[areaId] ? areaId : last };
+    const body = document.createElement('div');
+    body.className = 'rehab'; ctx.body = body;
+    const o = U.page({ title: 'Rehab and recovery', body });
+    draw(ctx);
+    U.delegate(body, {
+      area: t => { ctx.cur = last = t.dataset.a; draw(ctx); const c = body.querySelector('.rh-area'); if (c) c.scrollIntoView({ block: 'start', behavior: 'smooth' }); },
+      ex: t => App.Detail.open(t.dataset.id),
+      swap: t => swapSheet(ctx, t.dataset.uid, t.dataset.di)
+    });
+    return o;
+  }
+  function draw(ctx) {
+    const body = ctx.body, cur = ctx.cur;
+    const a = byId[cur];
+    const fl = flagged(a);
+    const exRow = id => { const e = C.byId[id]; if (!e) return ''; return `<button class="li" data-act="ex" data-id="${e.id}">${U.thumb(e.id)}<div class="grow"><div class="t">${esc(e.n)}</div><div class="s">${esc(U.muscleNames(e.prim))}</div></div>${icon('right', 'sm')}</button>`; };
+    body.innerHTML = `
+      <p class="lead-s">Train around a niggle instead of through it. Pick the area that’s bothering you to see what to change in your plan and how to build it back up. This is general guidance, not a diagnosis.</p>
+      <details class="redflags" open><summary>${icon('warn', 'sm')}<span>See a doctor or physio first if</span></summary><ul>${RED_FLAGS.map(f => `<li>${esc(f)}</li>`).join('')}</ul></details>
+      <div class="chips rh-chips" role="group" aria-label="Area">${AREAS.map(x => `<button class="chip" data-act="area" data-a="${x.id}" aria-pressed="${x.id === cur}">${esc(x.n)}</button>`).join('')}</div>
+      <div class="rh-area">
+        <h2 class="rh-title">${esc(a.n)}</h2>
+        <p class="muted rh-signs">${esc(a.signs)}</p>
+        ${S().plan ? `<div class="section"><h2>In your plan</h2>${fl.length ? `<p class="muted rh-sub">These often load the ${esc(a.lc)} hard. Swap them while it settles.</p><div class="list">${fl.map(f => { const e = C.byId[f.it.ex]; return `<div class="li">${U.thumb(e.id)}<div class="grow"><div class="t">${esc(e.n)}</div><div class="s">${esc(f.day.name)}</div></div><button class="btn sm" data-act="swap" data-uid="${esc(f.it.uid || '')}" data-di="${f.di}">${icon('swap', 'sm')}Swap</button></div>`; }).join('')}</div>` : `<div class="card rh-ok">${icon('check', 'sm')}<span>Nothing in your plan usually loads this area hard. Keep an eye on how it feels.</span></div>`}</div>` : ''}
+        <div class="section"><h2>What to change</h2><ul class="rh-bullets">${a.change.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div class="section"><h2>A gentle start</h2><ul class="rh-bullets">${a.start.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div class="section"><h2>Usually easier on it</h2><div class="list">${a.easier.map(exRow).join('')}</div></div>
+        <div class="section"><h2>Often aggravates it</h2><div class="rh-tags">${a.flare.map(id => C.byId[id] ? `<button class="pill" data-act="ex" data-id="${id}">${esc(C.byId[id].n)}</button>` : '').join('')}</div></div>
+        <div class="section"><h2>Explore in AnatomeX</h2><p class="muted rh-sub">See each structure layer by layer, with home and gym exercises to strengthen it.</p><div class="rh-links">${a.anx.map(([k, l]) => `<a class="chip" href="${ANX}#${k}" target="_blank" rel="noopener">${esc(l)}${icon('ext', 'xs')}</a>`).join('')}</div></div>
+      </div>
+      <div class="section"><h2>The pain rule</h2><div class="card rh-rule"><p>A guide from tendon rehabilitation research. Training is fine while all three hold:</p>
+        <ul class="rh-bullets"><li>During the exercise, pain stays at 5 out of 10 or lower, where 0 is none and 10 is the worst imaginable.</li><li>It settles back to normal by the next morning.</li><li>It isn’t creeping up from week to week.</li></ul>
+        <p>If one of these fails, ease off for a few sessions. Sharp, catching or spreading pain means stop.</p></div></div>
+      <div class="section"><h2>Three stages</h2><ol class="steps rh-stages">
+        <li><span><b>Settle.</b> Swap out the exercises that flare it and keep training everything else. Holding a position, an isometric, is often easier on a sore area than moving through it.</span></li>
+        <li><span><b>Build.</b> Strengthen the area 2 to 3 times a week with slow reps, about 3 seconds up and 3 seconds down, for 3 sets of 8 to 15. Add weight while the pain rule holds. This stage often takes several weeks.</span></li>
+        <li><span><b>Return.</b> Bring the original exercise back at about half your usual weight, and build back up over 2 to 4 weeks.</span></li></ol></div>
+      <div class="rh-anx"><div class="grow"><div class="t">AnatomeX</div><div class="s">An interactive anatomy atlas: find the weak link, trace what supports it and train it. Also by Mayank Mayookh.</div></div><a class="btn sm" href="${ANX}" target="_blank" rel="noopener">Open${icon('ext', 'xs')}</a></div>
+      <p class="rh-refs">Based on: Silbernagel KG et al., pain-monitoring model in Achilles tendinopathy, Am J Sports Med 2007;35:897–906. Kongsgaard M et al., heavy slow resistance training in patellar tendinopathy, Scand J Med Sci Sports 2009;19:790–802. NICE guideline NG59, Low back pain and sciatica in over 16s, 2016, updated 2020.</p>`;
+    U.thumbs(body);
+    // bring the selected area chip into view without moving the page
+    const chips = body.querySelector('.rh-chips'), sel = chips && chips.querySelector('[aria-pressed="true"]');
+    if (sel) { const d = sel.getBoundingClientRect().left - chips.getBoundingClientRect().left; chips.scrollLeft = Math.max(0, chips.scrollLeft + d - chips.clientWidth / 2 + sel.offsetWidth / 2); }
+  }
+  // swap a plan exercise for one that is usually easier on the area
+  function swapSheet(ctx, uid, di) {
+    const pl = S().plan; if (!pl) return;
+    const day = pl.days[+di]; if (!day) return;
+    const it = day.items.find(x => (x.uid || '') === uid) || null; if (!it) return;
+    const a = byId[ctx.cur], cx = C.byId[it.ex];
+    const opts = a.easier.map(id => C.byId[id]).filter(e => e && e.id !== it.ex && C.available(e, P().equip)).sort((x, y) => sim(y, cx) - sim(x, cx));
+    const o = U.sheet({
+      title: 'Swap ' + cx.n,
+      body: `<p class="muted" style="margin:0 0 10px;font-size:14px">Usually easier on the ${esc(a.lc)}, closest matches first. Sets and reps stay the same.</p>
+        <div class="list">${opts.map(e => `<button class="li" data-pick="${e.id}">${U.thumb(e.id)}<div class="grow"><div class="t">${esc(e.n)}</div><div class="s">${esc(U.muscleNames(e.prim))}, ${esc(U.eqLabel(e))}</div></div>${icon('swap', 'sm')}</button>`).join('') || '<div class="li"><div class="grow muted">None of the usual options match your equipment.</div></div>'}</div>
+        <button class="linkbtn" data-more style="margin-top:6px">See all alternatives</button>`
+    });
+    U.thumbs(o.el);
+    const apply = id => { App.swapItem(it, id); C.save(); App.render(); draw(ctx); U.toast('Swapped in ' + C.byId[id].n); };
+    o.el.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => { apply(b.dataset.pick); o.close(); });
+    o.el.querySelector('[data-more]').onclick = () => { o.close(); setTimeout(() => App.picker({ title: 'Swap ' + cx.n, like: cx, label: 'Swap in this exercise', onPick: id => apply(id) }), 360); };
+  }
+  return { open, areaFor, areaForPart, AREAS, ANX };
+})();
+
+/* ---------------------------- PLATE CALCULATOR ---------------------------- */
+const Plates = (() => {
+  'use strict';
+  const S = U.S, P = U.P, C = Core;
+  const { esc, icon } = U;
+  const KG = [25, 20, 15, 10, 5, 2.5, 1.25], LB = [45, 35, 25, 10, 5, 2.5];
+  const BARS = { kg: [20, 15, 10], lb: [45, 35, 25] };
+  // competition colours for kg plates; iron greys for lb
+  const COL = { 25: '#d8443c', 20: '#3a6fd8', 15: '#e8c43a', 10: '#3fa45b', 5: '#eceee9', 2.5: '#d8443c', 1.25: '#b9bec6' };
+  const COL_LB = { 45: '#5b626c', 35: '#6a717b', 25: '#7a818b', 10: '#8b929b', 5: '#9ca2aa', 2.5: '#b0b5bc' };
+  const HT_KG = { 25: 1, 20: 1, 15: 0.86, 10: 0.72, 5: 0.52, 2.5: 0.42, 1.25: 0.34 }, HT_LB = { 45: 1, 35: 0.9, 25: 0.8, 10: 0.6, 5: 0.5, 2.5: 0.42 };
+
+  function cfg() {
+    const p = P(), lb = p.units === 'lb';
+    const plates = ((lb ? p.platesLb : p.platesKg) || (lb ? LB : KG)).slice().sort((a, b) => b - a);
+    return { lb, unit: lb ? 'lb' : 'kg', bar: lb ? (p.barLb || 45) : (p.barKg || 20), plates, all: lb ? LB : KG, step: lb ? 0.5 : 0.25 };
+  }
+  // fewest plates per side reaching each reachable total (exact, any available plate in pairs)
+  function table(maxSide, c) {
+    const n = Math.round(maxSide / c.step), best = new Array(n + 1).fill(Infinity), from = new Array(n + 1).fill(-1);
+    best[0] = 0;
+    const units = c.plates.map(p => Math.round(p / c.step));
+    for (let a = 1; a <= n; a++) for (let k = 0; k < units.length; k++) { const u = units[k]; if (u <= a && best[a - u] + 1 < best[a]) { best[a] = best[a - u] + 1; from[a] = k; } }
+    const list = a => { const out = []; while (a > 0 && from[a] >= 0) { out.push(c.plates[from[a]]); a -= units[from[a]]; } return out.sort((x, y) => y - x); };
+    return { n, best, list };
+  }
+  // per-side load for a target total; falls back to the nearest loadable totals
+  function solve(total, c) {
+    c = c || cfg();
+    if (!(total > 0)) return { exact: true, total: c.bar, side: [], below: null, above: null, under: total < c.bar };
+    if (total <= c.bar) return { exact: Math.abs(total - c.bar) < 1e-9, total: c.bar, side: [], under: total < c.bar };
+    const side = (total - c.bar) / 2;
+    const T = table(side + Math.max(...c.plates, 0), c);
+    const target = Math.round(side / c.step);
+    const ok = a => a >= 0 && a <= T.n && T.best[a] < Infinity;
+    const res = a => ({ total: c.bar + 2 * a * c.step, side: T.list(a) });
+    if (Math.abs(target * c.step - side) < 1e-9 && ok(target)) return Object.assign({ exact: true }, res(target));
+    let lo = Math.min(target, T.n); while (lo > 0 && !ok(lo)) lo--;
+    let hi = target + 1; while (hi <= T.n && !ok(hi)) hi++;
+    const below = res(lo), above = hi <= T.n ? res(hi) : null;
+    return Object.assign({ exact: false, below, above }, below);
+  }
+  // ramp of warm-up sets before a working weight, rounded down to loadable weights
+  function warmups(work, c) {
+    c = c || cfg();
+    if (!(work > c.bar)) return [];
+    const out = [{ w: c.bar, r: 10, side: [] }];
+    for (const [pct, r] of [[0.4, 5], [0.6, 3], [0.8, 2]]) {
+      const s = solve(work * pct, c);
+      const w = s.total;
+      if (w <= out[out.length - 1].w || w >= work) continue;
+      out.push({ w, r, side: s.side, pct });
+    }
+    return out;
+  }
+  const sideTxt = (side, c) => side.length ? side.map(v => U.r1(v)).join(' + ') + ' ' + c.unit : 'just the bar';
+  function viz(side, c) {
+    const ht = c.lb ? HT_LB : HT_KG, col = c.lb ? COL_LB : COL;
+    return `<div class="barviz" role="img" aria-label="Each side: ${esc(sideTxt(side, c))}"><span class="collar"></span>${side.map(v => `<span class="plate" style="--h:${ht[v] || 0.5};--c:${col[v] || '#888'};--w:${v >= (c.lb ? 25 : 10) ? 15 : v >= (c.lb ? 10 : 5) ? 11 : 8}px"><b>${U.r1(v)}</b></span>`).join('')}<span class="sleeve"></span></div>`;
+  }
+
+  // weightKg: the working weight in kilograms (internal units), or null
+  function open(weightKg) {
+    const c0 = cfg();
+    let w = weightKg ? Math.round(U.toW(weightKg) / c0.step) * c0.step : (c0.lb ? 135 : 60);
+    const body = document.createElement('div');
+    body.className = 'platecalc';
+    const draw = () => {
+      const c = cfg();
+      const s = solve(w, c);
+      const ws = warmups(s.exact ? w : s.total, c);
+      body.innerHTML = `
+        <div class="pc-w"><button class="iconbtn" data-d="-1" aria-label="Less weight">${icon('minus')}</button><label class="pc-in"><input inputmode="decimal" value="${U.r1(w)}" aria-label="Target weight in ${c.unit}"/><span>${c.unit}</span></label><button class="iconbtn" data-d="1" aria-label="More weight">${icon('plus')}</button></div>
+        ${viz(s.side, c)}
+        <p class="pc-res">${s.under ? `Lighter than the bar. Use a lighter bar or dumbbells.` : s.exact ? `Each side: <b>${esc(sideTxt(s.side, c))}</b>` : `Can’t load exactly ${U.r1(w)} ${c.unit} with your plates. Closest: <b>${U.r1(s.below.total)} ${c.unit}</b> (each side ${esc(sideTxt(s.below.side, c))})${s.above ? ` or <b>${U.r1(s.above.total)} ${c.unit}</b>` : ''}.`}</p>
+        ${ws.length ? `<div class="section" style="margin-top:14px"><h2>Warm-up sets</h2><p class="muted" style="margin:-4px 0 8px;font-size:13px">Before your first working set. Rest about a minute between them.</p><div class="list">${ws.map(x => `<div class="li plain pc-wu"><div class="grow"><div class="t">${x.w === c.bar ? 'Empty bar' : U.r1(x.w) + ' ' + c.unit} × ${x.r}</div><div class="s">${x.side.length ? 'Each side: ' + esc(sideTxt(x.side, c)) : 'No plates'}</div></div>${x.pct ? `<span class="end">${Math.round(x.pct * 100)}%</span>` : ''}</div>`).join('')}</div></div>` : ''}
+        <div class="section"><h2>Bar</h2><div class="seg" role="group" aria-label="Bar weight">${BARS[c.unit].map(b => `<button data-bar="${b}" aria-pressed="${b === c.bar}">${b} ${c.unit}</button>`).join('')}</div></div>
+        <div class="section"><h2>Plates at your gym</h2><div class="rh-tags">${c.all.map(v => `<button class="chip" data-pl="${v}" aria-pressed="${c.plates.includes(v)}">${U.r1(v)}</button>`).join('')}</div></div>`;
+      const inp = body.querySelector('input');
+      inp.onchange = () => { const v = parseFloat(inp.value); if (v > 0) { w = v; draw(); } };
+    };
+    draw();
+    const o = U.sheet({ title: 'Plate calculator', body });
+    body.addEventListener('click', e => {
+      const c = cfg(), p = P();
+      const d = e.target.closest('[data-d]'); if (d) { const inc = Math.min(...c.plates) * 2; w = Math.max(c.bar, Math.round((w + (+d.dataset.d) * inc) / c.step) * c.step); U.buzz(6); draw(); return; }
+      const b = e.target.closest('[data-bar]'); if (b) { if (c.lb) p.barLb = +b.dataset.bar; else p.barKg = +b.dataset.bar; C.save(); draw(); return; }
+      const pl = e.target.closest('[data-pl]'); if (pl) {
+        const v = +pl.dataset.pl, k = c.lb ? 'platesLb' : 'platesKg';
+        let cur = c.plates.slice(); cur = cur.includes(v) ? cur.filter(x => x !== v) : cur.concat(v);
+        if (!cur.length) { U.toast('Keep at least one plate size.'); return; }
+        p[k] = cur.sort((x, y) => y - x); C.save(); draw();
+      }
+    });
+    return o;
+  }
+  const isBarbell = ex => !!ex && ex.eq.includes('barbell');
+  return { open, solve, warmups, isBarbell, cfg };
+})();
+
+/* ---------------------------- EXERCISE NOTES ---------------------------- */
+const Notes = (() => {
+  'use strict';
+  const S = U.S, C = Core;
+  const { esc } = U;
+  const get = id => (S().notes && S().notes[id]) || '';
+  function edit(id, after) {
+    const ex = C.byId[id]; const cur = get(id);
+    const o = U.sheet({
+      title: cur ? 'Edit note' : 'Add a note',
+      body: `<p class="muted" style="margin:0 0 10px;font-size:14px">For ${esc(ex ? ex.n : 'this exercise')}. Seat height, grip, a cue that works for you. It shows every time you do this exercise.</p>
+        <textarea class="input" data-note rows="4" maxlength="280" placeholder="Seat on 4, handles at the second notch" style="height:auto;padding:10px 12px;line-height:1.4">${esc(cur)}</textarea>`,
+      foot: `${cur ? '<button class="btn danger" data-del>Delete</button>' : ''}<button class="btn grow primary" data-save>Save note</button>`
+    });
+    const ta = o.el.querySelector('[data-note]');
+    setTimeout(() => { try { ta.focus(); } catch (e) { } }, 350);
+    const set = v => { S().notes = S().notes || {}; if (v) S().notes[id] = v; else delete S().notes[id]; C.save(); o.close(); after && after(); };
+    o.el.querySelector('[data-save]').onclick = () => { set(ta.value.trim()); U.toast(ta.value.trim() ? 'Note saved' : 'Note removed'); };
+    const del = o.el.querySelector('[data-del]'); if (del) del.onclick = () => { set(''); U.toast('Note removed'); };
+  }
+  return { get, edit };
 })();
 
 /* ---- ui3.js ---- */
@@ -3714,19 +4222,29 @@ const Sess = (() => {
   function start(di) {
     const pl = S().plan; const day = pl && pl.days[di]; if (!day) return;
     if (A()) { open(); return; }
-    const items = day.items.map(it => {
-      const sg = C.suggest(S().sessions, it, U.wU());
-      const last = C.lastPerformance(S().sessions, it.ex);
-      const sets = Array.from({ length: it.sets }, (_, i) => {
-        const prev = last && last.sets[i];
-        const w = sg && sg.w ? sg.w : (prev ? prev.w : null);
-        const r = it.secs ? it.secs : (prev && prev.r ? Math.min(Math.max(prev.r, it.reps[0]), it.reps[1]) : it.reps[1]);
-        return { w: w != null ? w : null, r, done: false };
-      });
-      return { ex: it.ex, t: { sets: it.sets, reps: it.reps || null, secs: it.secs || null, rest: it.rest, role: it.role }, sets };
-    });
+    const items = day.items.map(mkItem);
     S().active = { id: C.uid(), dayId: day.id, name: day.name, start: Date.now(), cur: 0, items, rest: null };
     C.save(); U.buzz(20); open();
+  }
+  // a workout item from a plan item, prefilled from the last time and the progression suggestion
+  function mkItem(it) {
+    const sg = C.suggest(S().sessions, it, U.wU());
+    const last = C.lastPerformance(S().sessions, it.ex);
+    const sets = Array.from({ length: it.sets }, (_, i) => {
+      const prev = last && last.sets[i];
+      const w = sg && sg.w ? sg.w : (prev ? prev.w : null);
+      const r = it.secs ? it.secs : (prev && prev.r ? Math.min(Math.max(prev.r, it.reps[0]), it.reps[1]) : it.reps[1]);
+      return { w: w != null ? w : null, r, done: false };
+    });
+    return { ex: it.ex, t: { sets: it.sets, reps: it.reps || null, secs: it.secs || null, rest: it.rest, role: it.role }, sets };
+  }
+  function addExercise() {
+    App.picker({ title: 'Add to this workout', label: 'Add to workout', onPick: id => {
+      const a = A(); if (!a) return;
+      const ex = C.byId[id];
+      a.items.splice(a.cur + 1, 0, mkItem(C.prescribe(ex, '', P())));
+      a.cur += 1; cueIdx = 0; C.save(); draw(); App.renderMini(); U.toast('Added ' + ex.n);
+    } });
   }
   function open() {
     if (!A()) return;
@@ -3757,11 +4275,13 @@ const Sess = (() => {
     const cues = ex.ok;
     cueIdx = cueIdx % cues.length;
     const nxt = a.items[a.cur + 1];
+    const note = Notes.get(it.ex);
     body.innerHTML = `
-      <div class="exnav" style="margin:0 -16px">${a.items.map((x, i) => { const d = x.sets.length && x.sets.every(s => s.done); return `<button data-act="goto" data-i="${i}" class="${i === a.cur ? 'on' : ''} ${d ? 'done' : ''}">${d ? icon('check', 'xs') : ''}${i + 1}</button>`; }).join('')}</div>
+      <div class="exnav" style="margin:0 -16px">${a.items.map((x, i) => { const d = x.sets.length && x.sets.every(s => s.done); return `<button data-act="goto" data-i="${i}" class="${i === a.cur ? 'on' : ''} ${d ? 'done' : ''}">${d ? icon('check', 'xs') : ''}${i + 1}</button>`; }).join('')}<button data-act="addex" class="add" aria-label="Add an exercise to this workout">${icon('plus', 'xs')}</button></div>
       ${U.stageHTML({ h: 220, views: false, controls: true, cls: 'sess-stage' })}
       <h2 class="ex-title" style="font-size:30px;margin:12px 0 4px">${esc(ex.n)}</h2>
       <div class="muted" style="font-size:14px">${it.t.secs ? `${it.t.sets} × ${it.t.secs} s` : `${it.t.sets} × ${it.t.reps[0]}–${it.t.reps[1]} reps`}, ${U.restTxt(it.t.rest)} rest${ex.uni ? ', each side' : ''}</div>
+      ${note ? `<button class="exnote" data-act="note">${icon('note', 'xs')}<span>${esc(note)}</span></button>` : ''}
       ${sg && sg.why ? `<div class="suggest">${icon(sg.up ? 'arrowUp' : 'target', 'sm')}<div>${sg.up ? `<b>Try ${U.fmtW(sg.w)} ${U.wU()}.</b> ` : ''}${esc(sg.why)}</div></div>` : (!last ? `<div class="suggest">${icon('info', 'sm')}<div>First time logging this. Pick a weight you could lift for 2–3 more reps than the target, and write it down.</div></div>` : '')}
       <button class="cue" data-act="cue" style="width:100%;text-align:left">${icon('check', 'sm')}<span class="grow"><span class="faint" style="font-size:12px;font-weight:650;display:block">Form check ${cueIdx + 1} of ${cues.length}</span>${esc(cues[cueIdx])}</span>${icon('right', 'sm')}</button>
       <div class="sets"><div class="sethead"><span style="text-align:center">Set</span><span style="text-align:center">Previous</span><span style="text-align:center">${bw ? '+' + U.wU() : U.wU()}</span><span style="text-align:center">${timed ? 'Seconds' : 'Reps'}</span><span></span></div>
@@ -3769,7 +4289,7 @@ const Sess = (() => {
         <input inputmode="decimal" data-f="w" value="${s.w != null && s.w !== '' ? U.r1(U.toW(s.w)) : ''}" placeholder="${bw ? '0' : '–'}" aria-label="Weight, set ${i + 1}"/>
         <input inputmode="numeric" data-f="r" value="${s.r != null ? s.r : ''}" placeholder="${timed ? it.t.secs : it.t.reps[1]}" aria-label="${timed ? 'Seconds' : 'Reps'}, set ${i + 1}"/>
         <button class="ck" data-act="${timed && !s.done ? 'hold' : 'done'}" data-s="${i}" aria-label="${s.done ? 'Mark set not done' : timed ? 'Start hold timer' : 'Mark set done'}">${icon(timed && !s.done ? (hold && hold.i === i ? 'pause' : 'play') : 'check', 'sm')}</button></div>`; }).join('')}</div>
-      <div class="row" style="margin-top:12px;gap:8px;flex-wrap:wrap"><button class="btn sm" data-act="addset">${icon('plus', 'sm')}Add set</button><button class="btn sm" data-act="swap">${icon('swap', 'sm')}Swap</button><button class="btn sm" data-act="info">${icon('info', 'sm')}How to</button></div>
+      <div class="row sess-tools"><button class="btn sm" data-act="addset">${icon('plus', 'sm')}Add set</button><button class="btn sm" data-act="rmset" ${it.sets.length <= 1 ? 'disabled' : ''}>${icon('minus', 'sm')}Remove set</button><button class="btn sm" data-act="swap">${icon('swap', 'sm')}Swap</button>${Plates.isBarbell(ex) ? `<button class="btn sm" data-act="plates">${icon('plate', 'sm')}Plates</button>` : ''}<button class="btn sm" data-act="note">${icon('note', 'sm')}${note ? 'Note' : 'Add note'}</button><button class="btn sm" data-act="info">${icon('info', 'sm')}How to</button></div>
       ${nxt ? `<div class="card row" style="margin-top:16px;padding:12px">${U.thumb(nxt.ex, 44)}<div class="grow"><div class="faint" style="font-size:12px;font-weight:650">Up next</div><div style="font-weight:650">${esc(C.byId[nxt.ex].n)}</div></div></div>` : ''}
       <div style="height:${a.rest ? 190 : 100}px"></div>`;
     U.thumbs(body);
@@ -3798,6 +4318,15 @@ const Sess = (() => {
         addset: () => { const it_ = A().items[A().cur]; const l = it_.sets[it_.sets.length - 1] || { w: null, r: it_.t.reps ? it_.t.reps[1] : it_.t.secs }; it_.sets.push({ w: l.w, r: l.r, done: false }); C.save(); draw(); },
         swap: () => { const it_ = A().items[A().cur]; App.picker({ title: 'Swap ' + C.byId[it_.ex].n, like: C.byId[it_.ex], onPick: id => { it_.ex = id; it_.sets.forEach(s => { s.w = null; s.done = false; }); C.save(); draw(); } }); },
         info: () => App.Detail.open(A().items[A().cur].ex),
+        rmset: async () => {
+          const it_ = A().items[A().cur]; if (it_.sets.length <= 1) return;
+          const l = it_.sets[it_.sets.length - 1];
+          if (l.done && !(await U.confirmSheet('Remove a completed set?', 'This set is marked done, so removing it means it won’t be saved.', 'Remove set', true))) return;
+          it_.sets.pop(); C.save(); draw(); App.renderMini();
+        },
+        addex: () => addExercise(),
+        plates: () => { const it_ = A().items[A().cur]; const st = it_.sets.find(x => !x.done) || it_.sets[it_.sets.length - 1]; Plates.open(st && st.w ? st.w : null); },
+        note: () => Notes.edit(A().items[A().cur].ex, () => draw()),
         prev: () => { if (A().cur > 0) { A().cur--; C.save(); draw(); } },
         next: () => { if (A().cur < A().items.length - 1) { A().cur++; cueIdx = 0; C.save(); draw(); pg.el.querySelector('.pg-b').scrollTo({ top: 0, behavior: 'smooth' }); } },
         finish: () => finish()
@@ -3883,21 +4412,29 @@ const Sess = (() => {
     if (hold) { clearInterval(hold.iv); hold = null; }
     const p = P();
     const items = a.items.map(it => ({ ex: it.ex, sets: it.sets.filter(s => s.done).map(s => ({ w: s.w || 0, r: s.r || 0 })), rest: it.t.rest, timed: !!it.t.secs })).filter(it => it.sets.length);
-    let kcal = C.kcalPerMin(3.5, p) * C.WARMUP_MIN, vol = 0;
+    const { kcal, vol } = calc(items, p);
     const prs = [];
     for (const it of items) {
-      const ex = C.byId[it.ex]; const spr = C.secPerRep(ex);
-      const work = it.sets.reduce((s, x) => s + (it.timed ? x.r : x.r * spr) * (ex.uni ? 2 : 1), 0);
-      kcal += C.kcalPerMin(ex.met, p) * (work + (it.sets.length - 1) * it.rest + 40) / 60;
-      vol += it.sets.reduce((s, x) => s + (x.w || 0) * (it.timed ? 0 : x.r), 0);
       const best = Math.max(0, ...it.sets.map(x => C.e1rm(x.w, x.r)));
       const prevBest = Prog.bestE1rm(it.ex);
       if (best > 0 && prevBest > 0 && best > prevBest + 0.01) prs.push({ ex: it.ex, v: best, prev: prevBest });
     }
-    const rec = { id: a.id, dayId: a.dayId, name: a.name, start: a.start, end: Date.now(), items, kcal: Math.round(kcal), vol: Math.round(vol), bw: App.latestWeight() };
+    const rec = { id: a.id, dayId: a.dayId, name: a.name, start: a.start, end: Date.now(), items, kcal, vol, bw: App.latestWeight() };
     S().sessions.push(rec); S().active = null; C.save(true);
     if (pg) pg.close(); syncRest(); App.render();
     setTimeout(() => summary(rec, prs), 120);
+  }
+  // estimated burn and volume for logged items (also used when a past workout is edited)
+  function calc(items, p) {
+    let kcal = C.kcalPerMin(3.5, p) * C.WARMUP_MIN, vol = 0;
+    for (const it of items) {
+      const ex = C.byId[it.ex]; if (!ex || !it.sets.length) continue;
+      const spr = C.secPerRep(ex);
+      const work = it.sets.reduce((s, x) => s + (it.timed ? x.r : x.r * spr) * (ex.uni ? 2 : 1), 0);
+      kcal += C.kcalPerMin(ex.met, p) * (work + (it.sets.length - 1) * it.rest + 40) / 60;
+      vol += it.sets.reduce((s, x) => s + (x.w || 0) * (it.timed ? 0 : x.r), 0);
+    }
+    return { kcal: Math.round(kcal), vol: Math.round(vol) };
   }
   function summary(rec, prs) {
     const sets = rec.items.reduce((s, it) => s + it.sets.length, 0);
@@ -3912,7 +4449,7 @@ const Sess = (() => {
     requestAnimationFrame(() => U.drawMaps(body.querySelector('.mapcard'), C.muscleWeights(rec.items.map(it => ({ ex: it.ex, sets: it.sets.length }))), { base: '#4a515b', body: '#646b75' }));
     U.buzz([30, 60, 30]);
   }
-  return { start, open, syncRest };
+  return { start, open, syncRest, calc };
 })();
 
 /* ---------------------------- PROGRESS ---------------------------- */
@@ -4083,9 +4620,41 @@ const Prog = (() => {
   }
   function sessionDetail(id) {
     const s = S().sessions.find(x => x.id === id); if (!s) return;
-    const body = `<p class="muted" style="margin:0 0 12px">${U.fmtDate(s.start, true)}, ${U.longClock((s.end - s.start) / 1000)}${s.kcal ? `, about ${U.nf(s.kcal)} kcal` : ''}</p><div class="list">${s.items.map(it => `<div class="li plain"><div class="grow"><div class="t">${esc(C.byId[it.ex] ? C.byId[it.ex].n : it.ex)}</div><div class="s">${it.sets.map(x => it.timed ? x.r + ' s' : (x.w ? `${U.fmtW(x.w)}×${x.r}` : `${x.r} reps`)).join(', ')}</div></div></div>`).join('')}</div>`;
-    const o = U.sheet({ title: s.name, body, foot: `<button class="btn danger" id="del">${icon('trash', 'sm')}Delete</button><button class="btn primary grow" data-close>Close</button>` });
-    o.el.querySelector('#del').onclick = async () => { const ok = await U.confirmSheet('Delete this workout?', 'Its sets will be removed from your history and records.', 'Delete workout', true); if (ok) { S().sessions = S().sessions.filter(x => x.id !== id); C.save(); o.close(); App.render(); } };
+    const nm = it => esc(C.byId[it.ex] ? C.byId[it.ex].n : it.ex);
+    const body = document.createElement('div');
+    let draft = null;
+    const viewHTML = () => `<p class="muted" style="margin:0 0 12px">${U.fmtDate(s.start, true)}, ${U.longClock((s.end - s.start) / 1000)}${s.kcal ? `, about ${U.nf(s.kcal)} kcal` : ''}</p><div class="list">${s.items.map(it => `<div class="li plain"><div class="grow"><div class="t">${nm(it)}</div><div class="s">${it.sets.map(x => it.timed ? x.r + ' s' : (x.w ? `${U.fmtW(x.w)}×${x.r}` : `${x.r} reps`)).join(', ')}</div></div></div>`).join('')}</div>`;
+    const editHTML = () => `<p class="muted" style="margin:0 0 12px;font-size:14px">Fix a typo or remove a set, then save. Weights are in ${U.wU()}.</p>${draft.map((it, ii) => `<div class="sedit"><div class="t">${nm(it)}</div>${it.sets.map((x, si) => `<div class="sedit-row" data-ii="${ii}" data-si="${si}"><span class="n">${si + 1}</span>${it.timed ? '' : `<input class="input" inputmode="decimal" data-f="w" value="${x.w ? U.r1(U.toW(x.w)) : ''}" placeholder="0" aria-label="${nm(it)}, set ${si + 1} weight"/><span class="u">${U.wU()} ×</span>`}<input class="input" inputmode="numeric" data-f="r" value="${x.r || ''}" placeholder="0" aria-label="${nm(it)}, set ${si + 1} ${it.timed ? 'seconds' : 'reps'}"/><span class="u">${it.timed ? 's' : 'reps'}</span><button class="iconbtn ghost" data-rm aria-label="Remove set ${si + 1}">${icon('x', 'sm')}</button></div>`).join('') || '<p class="muted" style="font-size:13px;margin:4px 0 0">No sets left. This exercise will be removed.</p>'}</div>`).join('')}`;
+    const o = U.sheet({ title: s.name, body, foot: '<div class="row" style="gap:10px;width:100%" id="sdf"></div>' });
+    const draw = () => {
+      body.innerHTML = draft ? editHTML() : viewHTML();
+      o.el.querySelector('#sdf').innerHTML = draft
+        ? `<button class="btn grow" data-x="cancel">Cancel</button><button class="btn grow primary" data-x="save">Save changes</button>`
+        : `<button class="btn danger" data-x="del" aria-label="Delete workout">${icon('trash', 'sm')}</button><button class="btn" data-x="edit">${icon('edit', 'sm')}Edit</button><button class="btn primary grow" data-close>Close</button>`;
+    };
+    draw();
+    body.addEventListener('change', e => {
+      const inp = e.target.closest('.sedit-row input'); if (!inp || !draft) return;
+      const row = inp.closest('.sedit-row'), x = draft[+row.dataset.ii].sets[+row.dataset.si], v = parseFloat(inp.value);
+      if (inp.dataset.f === 'w') x.w = isNaN(v) || v < 0 ? 0 : U.fromW(v); else x.r = isNaN(v) || v < 0 ? 0 : Math.round(v);
+    });
+    body.addEventListener('click', e => {
+      const rm = e.target.closest('[data-rm]'); if (!rm || !draft) return;
+      const row = rm.closest('.sedit-row'); draft[+row.dataset.ii].sets.splice(+row.dataset.si, 1); draw();
+    });
+    o.el.querySelector('#sdf').addEventListener('click', async e => {
+      const b = e.target.closest('[data-x]'); if (!b) return;
+      const x = b.dataset.x;
+      if (x === 'edit') { draft = JSON.parse(JSON.stringify(s.items)); draw(); }
+      if (x === 'cancel') { draft = null; draw(); }
+      if (x === 'save') {
+        const items = draft.map(it => Object.assign(it, { sets: it.sets.filter(st => st.r > 0) })).filter(it => it.sets.length);
+        if (!items.length) { U.toast('A workout needs at least one set. Delete it instead.'); return; }
+        s.items = items; Object.assign(s, Sess.calc(items, P())); draft = null;
+        C.save(true); App.render(); draw(); U.toast('Workout updated');
+      }
+      if (x === 'del') { const ok = await U.confirmSheet('Delete this workout?', 'Its sets will be removed from your history and records.', 'Delete workout', true); if (ok) { S().sessions = S().sessions.filter(y => y.id !== id); C.save(); o.close(); App.render(); } }
+    });
   }
   return { render, logWeight, logMeasure, sessionDetail, exerciseHistory, bestE1rm };
 })();
@@ -4119,12 +4688,12 @@ const Settings = (() => {
       <div class="section"><h2>During workouts</h2><div class="card" style="padding:4px 16px">${tog('restAuto', 'Start rest timer automatically', 'When you tick off a set')}${tog('sound', 'Sound when rest ends')}${tog('vibrate', 'Vibrate', 'On supported phones')}${tog('wake', 'Keep screen on', 'While a workout is open')}</div></div>
       <div class="section"><h2>Display</h2><div class="card"><div class="field"><span>Theme</span>${seg('theme', [['system', 'Automatic'], ['dark', 'Dark'], ['light', 'Light']])}</div><div class="field" style="margin:0"><span>Calories shown</span>${seg('kcalMode', [['total', 'Total burn'], ['active', 'Active only']])}<span class="faint" style="font-size:12px">Active leaves out what you would burn at rest anyway</span></div></div></div>
       <div class="section"><h2>Your data</h2><div class="card" style="padding:6px 16px">
-        <button class="setrow" style="width:100%;text-align:left" data-act="export"><div class="grow"><div class="t">Export a backup</div><div class="s">Your plan, workouts and body log, as a file or as text</div></div>${icon('download', 'sm')}</button>
+        <button class="setrow" style="width:100%;text-align:left" data-act="export"><div class="grow"><div class="t">Export a backup</div><div class="s">${S().lastBackup ? 'Last backup ' + U.fmtDate(S().lastBackup) + '. ' : ''}Your plan, workouts and body log, as a file or as text</div></div>${icon('download', 'sm')}</button>
         <button class="setrow" style="width:100%;text-align:left" data-act="restore"><div class="grow"><div class="t">Restore from a backup</div><div class="s">Replaces the data on this device</div></div>${icon('upload', 'sm')}</button>
         <button class="setrow" style="width:100%;text-align:left;color:var(--crit)" data-act="reset"><div class="grow"><div class="t">Erase everything</div><div class="s" style="color:var(--tx2)">Deletes your plan, history and profile from this device</div></div>${icon('trash', 'sm')}</button></div>
         <p class="muted" style="font-size:12.5px">Spotter has no account and no server. Everything is stored in this browser on this device${C.storageOK() ? '' : '. Storage is currently unavailable, so changes will be lost when you close the page'}. Export a backup before clearing your browser data or switching phones.</p></div>
       <div class="section"><h2>About</h2><div class="card" style="padding:6px 16px"><button class="setrow" style="width:100%;text-align:left" data-act="method"><div class="grow"><div class="t">How the numbers work</div><div class="s">Calories, time, weekly sets, body fat and strength</div></div>${icon('right', 'sm')}</button><button class="setrow" style="width:100%;text-align:left" data-act="onboard"><div class="grow"><div class="t">Run setup again</div></div>${icon('right', 'sm')}</button></div>
-        <p class="foot">Spotter 1.0. Exercise guidance is general information, not medical advice. Barlow typeface by Jeremy Tribby, SIL Open Font License.</p></div>`;
+        <p class="foot about-credit"><b>Spotter 1.1</b><br>Copyright © 2026 Mayank Mayookh. All rights reserved.</p><p class="foot" style="margin-top:10px">Exercise guidance is general information, not medical advice. Barlow typeface by Jeremy Tribby, SIL Open Font License.</p></div>`;
       U.bindSteppers(body, (k, v) => { if (k === 'age') p.age = v; if (k === 'height') p.height = Math.round(U.fromL(v) * 10) / 10; if (k === 'weight') { p.weight = U.fromW(v); } C.save(); });
     };
     draw();
@@ -4137,7 +4706,7 @@ const Settings = (() => {
       const eq = e.target.closest('[data-eq]'); if (eq) { const k = eq.dataset.eq; p.equip = p.equip.includes(k) ? p.equip.filter(x => x !== k) : p.equip.concat(k); if (!p.equip.includes('none')) p.equip.push('none'); p.eqPreset = 'custom'; C.save(); draw(); return; }
       const a = e.target.closest('[data-act]'); if (!a) return;
       if (a.dataset.act === 'rebuild') { const pl = S().plan; const ok = await U.confirmSheet('Rebuild your plan?', 'Your current split is kept, but exercises, sets and reps are chosen again for your new settings.', 'Rebuild plan'); if (ok) { App.SplitSetup.build({ split: pl.split, days: pl.days.length, custom: pl.custom }); o.close(); App.go('plan'); U.toast('Plan rebuilt'); } }
-      if (a.dataset.act === 'export') exportSheet();
+      if (a.dataset.act === 'export') exportSheet(draw);
       if (a.dataset.act === 'restore') restoreSheet();
       if (a.dataset.act === 'reset') { const ok = await U.confirmSheet('Erase everything?', 'This deletes your plan, workout history, body log and settings from this device. It cannot be undone.', 'Erase everything', true); if (ok) { C.reset(); U.closeAll(); App.go('today'); Onboard.open(); } }
       if (a.dataset.act === 'method') method();
@@ -4160,7 +4729,8 @@ const Settings = (() => {
       document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length); const ok = document.execCommand('copy'); ta.remove(); return ok;
     } catch (e) { return false; }
   }
-  async function exportSheet() {
+  const markBackup = after => { S().lastBackup = Date.now(); C.save(true); App.render(); after && after(); };
+  async function exportSheet(after) {
     await viewerDlReady;
     const txt = C.exportData(), name = `spotter-backup-${U.ymd(Date.now())}.json`, inFrame = framed();
     const o = U.sheet({
@@ -4172,7 +4742,7 @@ const Settings = (() => {
     });
     o.el.querySelector('[data-x="file"]').onclick = async () => {
       if (viewerDl) {
-        try { const r = await viewerDl.save({ filename: name, data: txt }); o.close(); if (r && r.status === 'saved') U.toast('Backup saved'); }
+        try { const r = await viewerDl.save({ filename: name, data: txt }); o.close(); if (r && r.status === 'saved') { U.toast('Backup saved'); markBackup(after); } }
         catch (e) {
           const c = e && e.code;
           if (c === 'declined') return;
@@ -4183,17 +4753,17 @@ const Settings = (() => {
       const file = new File([txt], name, { type: 'application/json' });
       // iPhone: the share sheet offers "Save to Files"; downloads from a Home Screen app are unreliable there
       if (!inFrame && isIOS() && navigator.canShare && navigator.canShare({ files: [file] })) {
-        try { await navigator.share({ files: [file], title: 'Spotter backup' }); o.close(); U.toast('Backup shared'); return; }
+        try { await navigator.share({ files: [file], title: 'Spotter backup' }); o.close(); U.toast('Backup shared'); markBackup(after); return; }
         catch (e) { if (e && e.name === 'AbortError') return; }
       }
       try {
         const a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = name;
         document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
-        if (!inFrame) { o.close(); U.toast('Backup downloaded'); }
+        if (!inFrame) { o.close(); U.toast('Backup downloaded'); markBackup(after); }
       } catch (e) { U.toast('This browser blocked the download. Copy the text instead.'); }
     };
     o.el.querySelector('[data-x="copy"]').onclick = async () => {
-      if (await copyText(txt)) { o.close(); U.toast('Backup copied. Paste it somewhere safe.'); return; }
+      if (await copyText(txt)) { o.close(); U.toast('Backup copied. Paste it somewhere safe.'); markBackup(after); return; }
       const ta = o.el.querySelector('[data-txt]'); ta.value = txt; ta.style.display = 'block'; ta.focus(); ta.select();
       U.toast('Copying was blocked. Select all of the text and copy it.');
     };
@@ -4243,7 +4813,7 @@ const Settings = (() => {
     const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', dark ? '#1b1e23' : '#eceeea');
   }
   try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (P().theme === 'system') applyTheme(); }); } catch (e) { }
-  return { open, method, applyTheme };
+  return { open, method, applyTheme, exportSheet };
 })();
 
 /* ---------------------------- ONBOARDING ---------------------------- */
@@ -4268,7 +4838,7 @@ const Onboard = (() => {
     if (step === 0) {
       el.innerHTML = `<div class="ob"><div class="ob-hero"><canvas aria-label="A 3D figure demonstrating exercises"></canvas></div><div class="ob-body">
         <h1>Your pocket spotter.</h1><p class="lead">A plan built around your split, equipment and time. Every exercise has a 3D demo, a form checklist and safety notes. Every set you log adds to your progress.</p>
-        <div style="margin-top:auto;display:grid;gap:8px"><button class="btn primary big block" data-go="1">Set up my plan</button><button class="btn ghost block" data-skip>Look around first</button></div></div></div>`;
+        <div style="margin-top:auto;display:grid;gap:8px"><button class="btn primary big block" data-go="1">Set up my plan</button><button class="btn ghost block" data-skip>Look around first</button><p class="ob-credit">© 2026 Mayank Mayookh</p></div></div></div>`;
       const cv = el.querySelector('canvas');
       heroPl = new Rig.Player(cv, { interactive: true });
       const demo = ['bb-squat', 'pullup', 'bb-bench', 'db-lateral', 'deadlift', 'pushup'].map(id => C.byId[id]).filter(Boolean);
